@@ -117,18 +117,20 @@ export default function AuthPage() {
   };
 
   return (
-    <div className="flex flex-col md:flex-row min-h-screen w-full">
+    <div className={`flex flex-col md:flex-row min-h-screen w-full transition-all duration-2000 ease-in-out ${isSignIn ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
       {/* Left section - Full Background Image - Fixed for mobile */}
-      <div className="relative w-full md:w-1/2 min-h-[250px] md:min-h-full">
+      <div className="relative w-full md:w-1/2 h-screen md:h-auto md:min-h-screen transition-all duration-2000 ease-in-out">
         <img
           src={authBG}
           alt="Fashion model"
-          className="absolute inset-0 w-full h-full object-cover object-center"
+          className="absolute inset-0 w-full h-full object-fit object-center transition-all duration-2000 ease-in-out"
         />
         <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
-          <div className="text-white text-center px-6 transform transition-all duration-1000">
+          <div className="text-white text-center px-6 transform transition-all duration-2000 ease-in-out">
             <h1 className="text-3xl md:text-5xl font-bold mb-2">FASHION ELITE</h1>
-            <p className="text-lg md:text-2xl">Elevate Your Style</p>
+            <p className="text-lg md:text-2xl">
+              {isSignIn ? "Elevate Your Style" : "Join Our Style Community"}
+            </p>
           </div>
         </div>
       </div>
