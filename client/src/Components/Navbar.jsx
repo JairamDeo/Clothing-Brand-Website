@@ -131,7 +131,7 @@ export default function Navbar() {
                 <Search size={20} />
               </button>
               <Link
-                to="/auth"
+                to="/signin"
                 className="p-1 hidden md:flex hover:bg-gray-100 rounded-full w-8 h-8 items-center justify-center"
               >
                 <User size={20} />
