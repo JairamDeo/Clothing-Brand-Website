@@ -5,7 +5,7 @@ import {
   Route,
 } from "react-router-dom";
 
-import Navbar from "./components/Navbar";
+import Navbar from "./Components/Navbar";
 import Footer from "./components/Footer";
 
 import Ladies from './Screens/Ladies';
@@ -19,7 +19,7 @@ function App() {
   return (
     <Router>
       <div>
-      <Navbar/>
+      <Navbar/>  
         <Routes>
           <Route exact path='/' element={<Ladies/>}/>
           <Route exact path='/men' element={<Men/>}/>
