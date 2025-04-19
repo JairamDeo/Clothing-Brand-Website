@@ -2,11 +2,11 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Search, ShoppingBag, User, Heart, Menu, X, ChevronDown } from 'lucide-react';
 import CategoryDrawer from './CategoryDrawer';
+import SearchBar from './SearchBar';
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const [searchQuery, setSearchQuery] = useState('');
   const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 0);
   const [activeCategoryDrawer, setActiveCategoryDrawer] = useState(null);
 
@@ -46,8 +46,6 @@ export default function Navbar() {
     if (activeCategoryDrawer) setActiveCategoryDrawer(null);
   };
   
-  
-
   const openDrawer = () => {
     // Default to 'Ladies' category when opening the drawer
     setActiveCategoryDrawer('Ladies');
@@ -57,29 +55,6 @@ export default function Navbar() {
 
   // Check if current location path matches the nav item path
   const isActive = (path) => location.pathname === path;
-
-  // Handle search input change
-  const handleSearchChange = (e) => {
-    setSearchQuery(e.target.value);
-  };
-
-  // Handle search submission
-  const handleSearchSubmit = (e) => {
-    e.preventDefault();
-    if (searchQuery) {
-      // Redirect user based on search query
-      if (searchQuery.toLowerCase() === 'men') {
-        navigate('/men');
-      } else if (searchQuery.toLowerCase() === 'kids') {
-        navigate('/kids');
-      } else if (searchQuery.toLowerCase() === 'ladies') {
-        navigate('/');
-      } else if (searchQuery.toLowerCase() === 'home') {
-        navigate('/home');
-      }
-      setSearchQuery(''); // Clear search input after navigation
-    }
-  };
 
   return (
     <div className="text-sm">
@@ -191,27 +166,8 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Search Bar */}
-      {isSearchOpen && (
-        <div className="border-b border-gray-200 py-3 px-4 absolute w-full bg-white z-30">
-          <div className="container mx-auto flex items-center max-w-2xl">
-            <Search size={18} className="text-gray-500" />
-            <form onSubmit={handleSearchSubmit} className="w-full flex items-center">
-              <input
-                type="text"
-                placeholder="Search products"
-                className="ml-2 w-full outline-none"
-                autoFocus
-                value={searchQuery}
-                onChange={handleSearchChange}
-              />
-              <button className="ml-2">
-                <X size={18} className="text-gray-500" />
-              </button>
-            </form>
-          </div>
-        </div>
-      )}
+      {/* Search Bar Component */}
+      <SearchBar isSearchOpen={isSearchOpen} setIsSearchOpen={setIsSearchOpen} isMobile={isMobile} />
 
       {/* Mobile Menu */}
       {isMenuOpen && isMobile && (
