@@ -3,9 +3,10 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
+  useLocation,
 } from "react-router-dom";
 
-import React, { Suspense, lazy } from 'react';
+import React, { Suspense, lazy, useEffect } from "react";
 
 // Static components
 import Navbar from "./Components/Navbar";
@@ -18,10 +19,21 @@ const Home = lazy(() => import('./Screens/Home'));
 const Kids = lazy(() => import('./Screens/Kids'));
 const AuthPage = lazy(() => import('./Authentication/AuthPage'));
 
+function ScrollToTop() {
+  const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);  // Scroll to top when the route changes
+  }, [location]);
+
+  return null;
+}
+
 function App() {
   return (
     <Router>
       <div >
+      <ScrollToTop /> {/* Scroll to top on route change */}
         <Navbar /> 
         <Suspense fallback={<div className="text-center p-4">Loading...</div>}>
           <Routes>
