@@ -130,27 +130,27 @@ export default function Navbar() {
               >
                 <Search size={20} />
               </button>
-              <a
-                href="/auth"
+              <Link
+                to="/auth"
                 className="p-1 hidden md:flex hover:bg-gray-100 rounded-full w-8 h-8 items-center justify-center"
               >
                 <User size={20} />
-              </a>
-              <a
-                href="#"
+              </Link>
+              <Link
+                to="#"
                 className="p-1 hidden md:flex hover:bg-gray-100 rounded-full w-8 h-8 items-center justify-center"
               >
                 <Heart size={20} />
-              </a>
-              <a
-                href="#"
+              </Link>
+              <Link
+                to="#"
                 className="p-1 relative hover:bg-gray-100 rounded-full w-8 h-8 flex items-center justify-center"
               >
                 <ShoppingBag size={20} />
                 <span className="absolute -top-1 -right-1 bg-black text-white text-xs rounded-full h-4 w-4 flex items-center justify-center">
                   0
                 </span>
-              </a>
+              </Link>
               {/* Mobile menu button moved to the right side with other icons */}
               {isMobile && (
                 <button
@@ -197,12 +197,12 @@ export default function Navbar() {
                 <X size={24} />
               </button>
               <h1 className="text-xl font-bold">H&M</h1>
-              <a href="#" className="p-1 relative">
+              <Link to="#" className="p-1 relative">
                 <ShoppingBag size={20} />
                 <span className="absolute -top-1 -right-1 bg-black text-white text-xs rounded-full h-4 w-4 flex items-center justify-center">
                   0
                 </span>
-              </a>
+              </Link>
             </div>
 
             <div className="flex flex-col space-y-1">
@@ -232,9 +232,9 @@ export default function Navbar() {
 
                 <div className="border-t border-gray-100 pt-4 mt-4">
                   {secondaryLinks.map((link) => (
-                    <a key={link} href="#" className="block py-2">
+                    <Link key={link} to="#" className="block py-2">
                       {link}
-                    </a>
+                    </Link>
                   ))}
                 </div>
               </div>
