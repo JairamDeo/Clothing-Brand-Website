@@ -224,7 +224,7 @@ export default function CategoryDrawer({
           </div>
         );
         
-      case 'H&M HOME':
+      case 'Home':
         return (
           <div className="flex flex-col md:flex-row w-full">
             <div className="w-full md:w-1/2 p-6">

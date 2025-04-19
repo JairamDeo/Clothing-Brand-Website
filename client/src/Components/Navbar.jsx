@@ -27,7 +27,7 @@ export default function Navbar() {
     { name: 'Ladies', path: '/' },
     { name: 'Men', path: '/men' },
     { name: 'Kids', path: '/kids' },
-    { name: 'H&M HOME', path: '/home' }
+    { name: 'Home', path: '/home' }
   ];
 
   const secondaryLinks = ['Customer Service', 'Newsletter', 'Find a store'];
@@ -91,7 +91,7 @@ export default function Navbar() {
             {isMobile ? (
               <div className="flex mx-auto">
                 <Link to="/" className="flex items-center">
-                  <h1 className="text-2xl font-bold">H&M</h1>
+                  <h1 className="text-2xl font-bold">RANJAYA</h1>
                 </Link>
               </div>
             ) : (
@@ -100,7 +100,7 @@ export default function Navbar() {
                   <Menu size={24} />
                 </button>
                 <Link to="/" className="flex items-center">
-                  <h1 className="text-2xl font-bold">H&M</h1>
+                  <h1 className="text-2xl font-bold">RANJAYA</h1>
                 </Link>
               </div>
             )}

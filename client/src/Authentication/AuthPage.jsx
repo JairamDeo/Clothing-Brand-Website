@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { Dialog } from "@headlessui/react";
 
+import authBG from '../assets/authbg.jpg';
 
 export default function AuthPage() {
   const [isSignIn, setIsSignIn] = useState(true);
@@ -34,15 +35,9 @@ export default function AuthPage() {
   return (
     <div className="flex h-screen w-full overflow-hidden bg-gray-100">
       {/* Left section - Full Background Image */}
-      <div
+      <img src={authBG}
         className="hidden md:flex md:w-1/2 bg-cover bg-center transition-all duration-1000 ease-in-out"
-        style={{
-          backgroundImage: "url('/assets/authbg.jpg')",
-          backgroundSize: "cover",
-          backgroundPosition: "center center",
-          backgroundRepeat: "no-repeat",
-        }}
-      ></div>
+      ></img>
 
       {/* Right section - Form */}
       <div className="w-full md:w-1/2 flex items-center justify-center px-6 md:px-12 transition-all duration-1000 ease-in-out">
