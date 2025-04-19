@@ -30,16 +30,15 @@ const Footer = () => {
         { name: 'Ladies', path: '/' },
         { name: 'Men', path: '/men' },
         { name: 'Kids', path: '/kids' },
-        { name: 'H&M HOME', path: '/home' },
+        { name: 'Home', path: '/home' },
         { name: 'Gift Cards', path: '/gift-cards' },
-        { name: 'Download the H&M App', path: '/app' }
+        { name: 'Download the RANJAYA App', path: '/app' }
       ]
     },
     {
       title: 'CORPORATE INFO',
       links: [
-        { name: 'Career at H&M', path: '/careers' },
-        { name: 'About H&M', path: '/about' },
+        { name: 'About Ranjaya Clothings', path: '/about' },
         { name: 'Sustainability', path: '/sustainability' },
         { name: 'Press', path: '/press' },
         { name: 'Investor Relations', path: '/investors' },
@@ -64,7 +63,7 @@ const Footer = () => {
     { icon: Instagram, name: 'Instagram', url: 'https://www.instagram.com/hm/' },
     { icon: Twitter, name: 'Twitter', url: 'https://twitter.com/hm' },
     { icon: Youtube, name: 'YouTube', url: 'https://www.youtube.com/user/hennesandmauritz' },
-    { icon: Linkedin, name: 'LinkedIn', url: 'https://www.linkedin.com/company/h&m' }
+    { icon: Linkedin, name: 'LinkedIn', url: 'https://www.linkedin.com/company/RANJAYA' }
   ];
   
   const toggleSection = (title) => {
@@ -187,14 +186,14 @@ const Footer = () => {
         <div className="container mx-auto px-4 md:px-8">
           <div className="flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
             <div className="mb-4 md:mb-0">
-              <p>The content of this site is copyright-protected and is the property of H&M Hennes & Mauritz AB.</p>
+              <p>The content of this site is copyright-protected and is the property of RANJAYA Pvt. Ltd.</p>
             </div>
             <div>
-              <p>H&M's business concept is to offer fashion and quality at the best price in a sustainable way.</p>
+              <p>RANJAYA's business concept is to offer fashion and quality at the best price in a sustainable way.</p>
             </div>
           </div>
           <div className="mt-6 text-center text-xs text-gray-400">
-            <p>© H&M {new Date().getFullYear()} | All Rights Reserved</p>
+            <p>© RANJAYA CLOTHING {new Date().getFullYear()} | All Rights Reserved</p>
           </div>
         </div>
       </div>

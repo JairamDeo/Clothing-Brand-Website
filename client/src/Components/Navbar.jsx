@@ -91,7 +91,7 @@ export default function Navbar() {
             {isMobile ? (
               <div className="flex mx-auto">
                 <Link to="/" className="flex items-center">
-                  <h1 className="text-2xl font-bold">RANJAYA</h1>
+                  <h1 className="text-2xl font-bold font-bebas text-black tracking-wider">RANJAYA</h1>
                 </Link>
               </div>
             ) : (
@@ -100,7 +100,7 @@ export default function Navbar() {
                   <Menu size={24} />
                 </button>
                 <Link to="/" className="flex items-center">
-                  <h1 className="text-2xl font-bold">RANJAYA</h1>
+                  <h1 className="text-2xl font-bold font-bebas text-black tracking-wider">RANJAYA</h1>
                 </Link>
               </div>
             )}
@@ -221,7 +221,7 @@ export default function Navbar() {
               <button onClick={toggleMenu}>
                 <X size={24} />
               </button>
-              <h1 className="text-xl font-bold">H&M</h1>
+              <h1 className="text-xl font-bold font-bebas">RANJAYA</h1>
               <Link to="#" className="p-1 relative">
                 <ShoppingBag size={20} />
                 <span className="absolute -top-1 -right-1 bg-black text-white text-xs rounded-full h-4 w-4 flex items-center justify-center">

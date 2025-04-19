@@ -21,8 +21,8 @@ const AuthPage = lazy(() => import('./Authentication/AuthPage'));
 function App() {
   return (
     <Router>
-      <div>
-        <Navbar />
+      <div >
+        <Navbar /> 
         <Suspense fallback={<div className="text-center p-4">Loading...</div>}>
           <Routes>
             <Route exact path='/' element={<Ladies />} />
