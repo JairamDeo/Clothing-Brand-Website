@@ -117,7 +117,7 @@ export default function AuthPage() {
   };
 
   return (
-    <div className="flex flex-col md:flex-row h-screen w-full overflow-hidden">
+    <div className="flex flex-col md:flex-row min-h-screen w-full">
       {/* Left section - Full Background Image - Fixed for mobile */}
       <div className="relative w-full md:w-1/2 min-h-[250px] md:min-h-full">
         <img
@@ -133,9 +133,9 @@ export default function AuthPage() {
         </div>
       </div>
 
-      {/* Right section - Form */}
-      <div className="w-full md:w-1/2 flex items-center justify-center px-4 md:px-12 py-8 bg-gray-50">
-        <div className={`w-full max-w-md ${isAnimating ? 'opacity-0 scale-95' : 'opacity-100 scale-100'} transition-all duration-500 ease-in-out`}>
+      {/* Right section - Form - Make it scrollable on mobile */}
+      <div className="w-full md:w-1/2 flex items-center justify-center px-4 md:px-12 py-8 bg-gray-50 overflow-y-auto">
+        <div className={`w-full max-w-md ${isAnimating ? 'opacity-0 scale-95' : 'opacity-100 scale-100'} transition-all duration-500 ease-in-out my-4`}>
           {/* Form Header with animated underline */}
           <div className="text-center mb-6">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-800 relative inline-block">
@@ -249,36 +249,35 @@ export default function AuthPage() {
                 <FcGoogle size={22} />
                 <span className="text-gray-700 font-medium">Continue with Google</span>
               </div>
+              
+              {/* Toggle between Login and Signup - INSIDE FORM */}
+              <div className="text-center mt-6">
+                {isSignIn ? (
+                  <div className="text-sm">
+                    Don't have an account?{' '}
+                    <button
+                      type="button"
+                      className="text-black font-semibold hover:underline transition-all duration-300"
+                      onClick={toggleAuthMode}
+                    >
+                      Sign up
+                    </button>
+                  </div>
+                ) : (
+                  <div className="text-sm">
+                    Already have an account?{' '}
+                    <button
+                      type="button"
+                      className="text-black font-semibold hover:underline transition-all duration-300"
+                      onClick={toggleAuthMode}
+                    >
+                      Sign in
+                    </button>
+                  </div>
+                )}
+              </div>
             </form>
           </div>
-
-          {/* Toggle between Login and Signup */}
-          <div className="text-center mt-8">
-            {isSignIn ? (
-              <div className="text-sm">
-                Don't have an account?{' '}
-                <button
-                  type="button"
-                  className="text-black font-semibold hover:underline transition-all duration-300"
-                  onClick={toggleAuthMode}
-                >
-                  Sign up
-                </button>
-              </div>
-            ) : (
-              <div className="text-sm">
-                Already have an account?{' '}
-                <button
-                  type="button"
-                  className="text-black font-semibold hover:underline transition-all duration-300"
-                  onClick={toggleAuthMode}
-                >
-                  Sign in
-                </button>
-              </div>
-            )}
-          </div>
-
         </div>
       </div>
 
