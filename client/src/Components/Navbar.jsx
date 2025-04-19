@@ -132,13 +132,17 @@ export default function Navbar() {
               </button>
               <Link
                 to="/signin"
-                className="p-1 hidden md:flex hover:bg-gray-100 rounded-full w-8 h-8 items-center justify-center"
+                className={`p-1 hover:bg-gray-100 rounded-full w-8 h-8 flex items-center justify-center ${
+                  isMobile ? '' : 'hidden md:flex'
+                }`}
               >
                 <User size={20} />
               </Link>
               <Link
                 to="#"
-                className="p-1 hidden md:flex hover:bg-gray-100 rounded-full w-8 h-8 items-center justify-center"
+                className={`p-1 hover:bg-gray-100 rounded-full w-8 h-8 flex items-center justify-center ${
+                  isMobile ? '' : 'hidden md:flex'
+                }`}
               >
                 <Heart size={20} />
               </Link>
@@ -163,6 +167,27 @@ export default function Navbar() {
               )}
             </div>
           </div>
+
+          {/* Mobile Navigation Row - NEW ADDITION */}
+          {isMobile && (
+            <div className="flex justify-center overflow-x-auto py-2 border-t border-gray-100">
+              <nav className="flex space-x-6">
+                {navCategories.map((item) => (
+                  <Link
+                    key={item.name}
+                    to={item.path}
+                    className={`whitespace-nowrap text-xs font-medium px-1 ${
+                      isActive(item.path)
+                        ? 'text-black font-semibold underline decoration-2 underline-offset-4'
+                        : 'text-gray-600'
+                    }`}
+                  >
+                    {item.name}
+                  </Link>
+                ))}
+              </nav>
+            </div>
+          )}
         </div>
       </div>
 
