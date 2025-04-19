@@ -2,6 +2,20 @@ import { useState, useEffect } from 'react';
 import { X, ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
+
+import blousesintrend from '../assets/CategoryDrawer/ladies-section/blouses-in-trend.jpg';
+import loungewear from '../assets/CategoryDrawer/ladies-section/loungewear.jpg';
+import trousers from '../assets/CategoryDrawer/ladies-section/trousers.jpg';
+import linen from '../assets/CategoryDrawer/men-section/linen.jpg';
+import jeans from '../assets/CategoryDrawer/men-section/jeans.jpg';
+import sunglasses from '../assets/CategoryDrawer/men-section/sunglasses.jpg';
+import summer from '../assets/CategoryDrawer/kids-section/summer.jpg';
+import playfull from '../assets/CategoryDrawer/kids-section/playfull.jpg';
+import ocassion from '../assets/CategoryDrawer/kids-section/ocassion.jpg';
+import bedroom from '../assets/CategoryDrawer/home-section/bedroom.jpg';
+import kitchen from '../assets/CategoryDrawer/home-section/kitchen.jpg';
+import living from '../assets/CategoryDrawer/home-section/living-room.jpg';
+
 export default function CategoryDrawer({ 
   activeCategoryDrawer, 
   setActiveCategoryDrawer, 
@@ -46,21 +60,21 @@ export default function CategoryDrawer({
               </div>
               
               <div className="space-y-4">
-                <a href="#" className="block">CLOTHING</a>
-                <a href="#" className="block">SPORT</a>
-                <a href="#" className="block">ACCESSORIES</a>
-                <a href="#" className="block">SWIMWEAR & BEACHWEAR</a>
-                <a href="#" className="block">SHOES</a>
-                <a href="#" className="block mt-6">MEMBER PRICES</a>
-                <a href="#" className="block text-red-600">SALE</a>
-                <a href="#" className="block mt-6">SUSTAINABILITY</a>
-                <a href="#" className="block">CUSTOMER SERVICE</a>
-                <a href="#" className="block">NEWSLETTER</a>
-                <a href="#" className="block">FIND A STORE</a>
+                <Link to="#" className="block">CLOTHING</Link>
+                <Link to="#" className="block">SPORT</Link>
+                <Link to="#" className="block">ACCESSORIES</Link>
+                <Link to="#" className="block">SWIMWEAR & BEACHWEAR</Link>
+                <Link to="#" className="block">SHOES</Link>
+                <Link to="#" className="block mt-6">MEMBER PRICES</Link>
+                <Link to="#" className="block text-red-600">SALE</Link>
+                <Link to="#" className="block mt-6">SUSTAINABILITY</Link>
+                <Link to="#" className="block">CUSTOMER SERVICE</Link>
+                <Link to="#" className="block">NEWSLETTER</Link>
+                <Link to="#" className="block">FIND A STORE</Link>
                 {windowWidth < 768 && (
                   <>
-                    <a href="#" className="block">DOWNLOAD ANDROID</a>
-                    <a href="#" className="block">DOWNLOAD IOS</a>
+                    <Link to="#" className="block">DOWNLOAD ANDROID</Link>
+                    <Link to="#" className="block">DOWNLOAD IOS</Link>
                   </>
                 )}
               </div>
@@ -69,7 +83,7 @@ export default function CategoryDrawer({
             <div className="w-full md:w-1/2 p-6 space-y-8">
               <div>
                 <img 
-                  src="../assets/CategoryDrawer/ladies-section/blouses-in-trend.jpg" 
+                  src={blousesintrend} 
                   alt="Blouses in trend" 
                   className="w-full h-48 object-fit mb-2" 
                 />
@@ -78,7 +92,7 @@ export default function CategoryDrawer({
               
               <div>
                 <img 
-                  src="../assets/CategoryDrawer/ladies-section/loungewear.jpg" 
+                  src={loungewear} 
                   alt="Loungewear" 
                   className="w-full h-48 object-fit mb-2" 
                 />
@@ -87,7 +101,7 @@ export default function CategoryDrawer({
 
               <div>
                 <img 
-                  src="../assets/CategoryDrawer/ladies-section/trousers.jpg" 
+                  src={trousers} 
                   alt="Loungewear" 
                   className="w-full h-48 object-fit mb-2" 
                 />
@@ -107,19 +121,19 @@ export default function CategoryDrawer({
               </div>
               
               <div className="space-y-4">
-                <a href="#" className="block">CLOTHING</a>
-                <a href="#" className="block">ACCESSORIES</a>
-                <a href="#" className="block">SPORT</a>
-                <a href="#" className="block mt-6">MEMBER PRICES</a>
-                <a href="#" className="block text-red-600">SALE</a>
-                <a href="#" className="block mt-6">SUSTAINABILITY</a>
-                <a href="#" className="block">CUSTOMER SERVICE</a>
-                <a href="#" className="block">NEWSLETTER</a>
-                <a href="#" className="block">FIND A STORE</a>
+                <Link to="#" className="block">CLOTHING</Link>
+                <Link to="#" className="block">ACCESSORIES</Link>
+                <Link to="#" className="block">SPORT</Link>
+                <Link to="#" className="block mt-6">MEMBER PRICES</Link>
+                <Link to="#" className="block text-red-600">SALE</Link>
+                <Link to="#" className="block mt-6">SUSTAINABILITY</Link>
+                <Link to="#" className="block">CUSTOMER SERVICE</Link>
+                <Link to="#" className="block">NEWSLETTER</Link>
+                <Link to="#" className="block">FIND A STORE</Link>
                 {windowWidth < 768 && (
                   <>
-                    <a href="#" className="block">DOWNLOAD ANDROID</a>
-                    <a href="#" className="block">DOWNLOAD IOS</a>
+                    <Link to="#" className="block">DOWNLOAD ANDROID</Link>
+                    <Link to="#" className="block">DOWNLOAD IOS</Link>
                   </>
                 )}
               </div>
@@ -128,7 +142,7 @@ export default function CategoryDrawer({
             <div className="w-full md:w-1/2 p-6 space-y-8">
               <div>
                 <img 
-                  src="../assets/CategoryDrawer/men-section/linen.jpg" 
+                  src={linen} 
                   alt="Linen destination" 
                   className="w-full h-48 object-fit mb-2" 
                 />
@@ -137,7 +151,7 @@ export default function CategoryDrawer({
               
               <div>
                 <img 
-                  src="../assets/CategoryDrawer/men-section/sunglasses.jpg" 
+                  src={sunglasses} 
                   alt="Sunglasses" 
                   className="w-full h-48 object-fit mb-2" 
                 />
@@ -146,7 +160,7 @@ export default function CategoryDrawer({
 
               <div>
                 <img 
-                  src="../assets/CategoryDrawer/men-section/jeans.jpg" 
+                  src={jeans}
                   alt="Sunglasses" 
                   className="w-full h-48 object-fit mb-2" 
                 />
@@ -166,23 +180,23 @@ export default function CategoryDrawer({
               </div>
               
               <div className="space-y-4">
-                <a href="#" className="block">BABY (0-4Y)</a>
-                <a href="#" className="block">KIDS (4-14Y)</a>
-                <a href="#" className="block">ACCESSORIES</a>
-                <a href="#" className="block">SHOES</a>
-                <a href="#" className="block mt-6">MEMBER PRICES</a>
-                <a href="#" className="block text-red-600">SALE</a>
-                <a href="#" className="block mt-6">SUSTAINABILITY</a>
-                <a href="#" className="block">CUSTOMER SERVICE</a>
-                <a href="#" className="block">NEWSLETTER</a>
-                <a href="#" className="block">FIND A STORE</a>
+                <Link to="#" className="block">BABY (0-4Y)</Link>
+                <Link to="#" className="block">KIDS (4-14Y)</Link>
+                <Link to="#" className="block">ACCESSORIES</Link>
+                <Link to="#" className="block">SHOES</Link>
+                <Link to="#" className="block mt-6">MEMBER PRICES</Link>
+                <Link to="#" className="block text-red-600">SALE</Link>
+                <Link to="#" className="block mt-6">SUSTAINABILITY</Link>
+                <Link to="#" className="block">CUSTOMER SERVICE</Link>
+                <Link to="#" className="block">NEWSLETTER</Link>
+                <Link to="#" className="block">FIND A STORE</Link>
               </div>
             </div>
             
             <div className="w-full md:w-1/2 p-6 space-y-8">
               <div>
                 <img 
-                  src="../assets/CategoryDrawer/kids-section/summer.jpg" 
+                  src={summer} 
                   alt="Summer essentials" 
                   className="w-full h-48 object-fit mb-2" 
                 />
@@ -191,7 +205,7 @@ export default function CategoryDrawer({
               
               <div>
                 <img 
-                  src="../assets/CategoryDrawer/kids-section/playfull.jpg" 
+                  src={playfull} 
                   alt="Playful sets" 
                   className="w-full h-48 object-fit mb-2" 
                 />
@@ -200,7 +214,7 @@ export default function CategoryDrawer({
               
               <div>
                 <img 
-                  src="../assets/CategoryDrawer/kids-section/ocassion.jpg" 
+                  src={ocassion}
                   alt="Playful sets" 
                   className="w-full h-48 object-fit mb-2" 
                 />
@@ -221,24 +235,24 @@ export default function CategoryDrawer({
               </div>
               
               <div className="space-y-4">
-                <a href="#" className="block">SHOP BY ROOM</a>
-                <a href="#" className="block">VIEW ALL PRODUCTS</a>
-                <a href="#" className="block">DECORATIONS</a>
-                <a href="#" className="block">INTERIOR TEXTILES</a>
-                <a href="#" className="block">BEDDING & BLANKETS</a>
-                <a href="#" className="block">COOKING & DINING</a>
-                <a href="#" className="block">BATH & SHOWER</a>
-                <a href="#" className="block">STORAGE</a>
-                <a href="#" className="block">KIDS & BABY</a>
-                <a href="#" className="block">ROOM FRAGRANCE</a>
-                <a href="#" className="block">SLEEP & LOUNGEWEAR</a>
+                <Link to="#" className="block">SHOP BY ROOM</Link>
+                <Link to="#" className="block">VIEW ALL PRODUCTS</Link>
+                <Link to="#" className="block">DECORATIONS</Link>
+                <Link to="#" className="block">INTERIOR TEXTILES</Link>
+                <Link to="#" className="block">BEDDING & BLANKETS</Link>
+                <Link to="#" className="block">COOKING & DINING</Link>
+                <Link to="#" className="block">BATH & SHOWER</Link>
+                <Link to="#" className="block">STORAGE</Link>
+                <Link to="#" className="block">KIDS & BABY</Link>
+                <Link to="#" className="block">ROOM FRAGRANCE</Link>
+                <Link to="#" className="block">SLEEP & LOUNGEWEAR</Link>
               </div>
             </div>
             
             <div className="w-full md:w-1/2 p-6 space-y-8">
               <div>
                 <img 
-                  src="../assets/CategoryDrawer/home-section/bedroom.jpg" 
+                  src={bedroom}
                   alt="Bedroom" 
                   className="w-full h-48 object-fit mb-2" 
                 />
@@ -247,7 +261,7 @@ export default function CategoryDrawer({
               
               <div>
                 <img 
-                  src="../assets/CategoryDrawer/home-section/living-room.jpg" 
+                  src={living}
                   alt="Living room" 
                   className="w-full h-48 object-fit mb-2" 
                 />
@@ -256,7 +270,7 @@ export default function CategoryDrawer({
 
               <div>
                 <img 
-                  src="../assets/CategoryDrawer/home-section/kitchen.jpg" 
+                  src={kitchen} 
                   alt="Living room" 
                   className="w-full h-48 object-fit mb-2" 
                 />

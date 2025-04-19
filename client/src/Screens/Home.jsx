@@ -1,11 +1,27 @@
-import React from 'react'
+import React from 'react';
+import {Link} from 'react-router-dom';
+
+// Import static images (for fixed paths)
+import bannerTop from '../assets/home/home-banner.jpg';
+import bannerLeft from '../assets/home/banner2-left.jpg';
+import bannerRight from '../assets/home/banner2-right.jpg';
+import topImg from '../assets/home/top-img.jpg';
+import linenImg from '../assets/home/linen-img.jpg';
+import bottomLeft from '../assets/home/bottom-left.jpg';
+import bottomRight from '../assets/home/bottom-right.jpg';
+
+// Import all product images dynamically
+const productImages = import.meta.glob('../assets/home/product-*.jpg', {
+  eager: true,
+  import: 'default',
+});
 
 export default function Home() {
   return (
     <div>
       <section className="w-full h-screen">
         <img
-          src="../assets/home/home-banner.jpg" // replace with actual path
+          src={bannerTop}
           alt="Banner"
           className="w-full h-full object-fit object-center"
         />
@@ -15,7 +31,7 @@ export default function Home() {
           {/* First Image */}
           <figure className="w-full md:w-1/2">
             <img
-              src="../assets/home/banner2-left.jpg" // Replace with actual image
+              src={bannerLeft}
               alt="Gallery Image 1"
               className="w-full h-[760.4px] object-fit"
             />
@@ -24,7 +40,7 @@ export default function Home() {
           {/* Second Image */}
           <figure className="w-full md:w-1/2 mt-4 md:mt-0">
             <img
-              src="../assets/home/banner2-right.jpg" // Replace with actual image
+              src={bannerRight}
               alt="Gallery Image 2"
               className="w-full h-[760.4px] object-fit"
             />
@@ -39,8 +55,8 @@ export default function Home() {
           {[1, 2, 3, 4].map((i) => (
             <div key={i} className="text-center">
               <img
-                src={`../assets/home/product-${i}.jpg`}
-                alt="Product"
+                src={productImages[`../assets/home/product-${i}.jpg`]}
+                alt={`Product ${i}`}
                 className="w-full h-64 object-cover rounded-lg mb-2"
               />
               <h3 className="text-sm font-medium">Floral Midi Dress</h3>
@@ -56,8 +72,8 @@ export default function Home() {
           {[4, 3, 2, 1].map((i) => (
             <div key={i} className="text-center">
               <img
-                src={`../assets/home/product-${i}.jpg`}
-                alt="Product"
+                src={productImages[`../assets/home/product-${i}.jpg`]}
+                alt={`Product ${i}`}
                 className="w-full h-64 object-cover rounded-lg mb-2"
               />
               <h3 className="text-sm font-medium">Floral Midi Dress</h3>
@@ -67,7 +83,37 @@ export default function Home() {
         </div>
       </div>
 
+      <section className="w-full flex justify-center px-4 md:px-8 lg:px-20 xl:px-32 2xl:px-40 my-16">
+        <div className="flex flex-wrap justify-center gap-6">
 
+          {/* Left Image Block */}
+          <div className="flex flex-col">
+            <img
+              src={topImg}
+              alt="Center Left"
+              className="w-[160px] h-[240px] sm:w-[200px] sm:h-[300px] md:w-[300px] md:h-[450px] lg:w-[460px] lg:h-[690px] object-cover"
+            />
+            <div className="mt-4 space-y-2">
+              <Link to="#tops" className="text-sm font-medium text-blue-600 hover:underline block capitalize">Tops</Link>
+              <Link to="#explore" className="text-sm font-medium text-blue-600 hover:underline block capitalize">Explore</Link>
+            </div>
+          </div>
+
+          {/* Right Image Block */}
+          <div className="flex flex-col">
+            <img
+              src={linenImg}
+              alt="Center Right"
+              className="w-[160px] h-[240px] sm:w-[200px] sm:h-[300px] md:w-[300px] md:h-[450px] lg:w-[460px] lg:h-[690px] object-cover"
+            />
+            <div className="mt-4 space-y-2">
+              <Link to="#tops" className="text-sm font-medium text-blue-600 hover:underline block capitalize">Linen</Link>
+              <Link to="#explore" className="text-sm font-medium text-blue-600 hover:underline block capitalize">Explore</Link>
+            </div>
+          </div>
+
+        </div>
+      </section>
 
       <section className="w-full flex justify-center px-4 md:px-8 lg:px-20 xl:px-32 2xl:px-40 my-16">
         <div className="flex flex-wrap justify-center gap-6">
@@ -75,67 +121,31 @@ export default function Home() {
           {/* Left Image Block */}
           <div className="flex flex-col">
             <img
-              src="../assets/home/top-img.jpg"
+              src={bottomLeft}
               alt="Center Left"
               className="w-[160px] h-[240px] sm:w-[200px] sm:h-[300px] md:w-[300px] md:h-[450px] lg:w-[460px] lg:h-[690px] object-cover"
             />
             <div className="mt-4 space-y-2">
-              <a href="#tops" className="text-sm font-medium text-blue-600 hover:underline block capitalize">Tops</a>
-              <a href="#explore" className="text-sm font-medium text-blue-600 hover:underline block capitalize">Explore</a>
+              <Link to="#tops" className="text-sm font-medium text-blue-600 hover:underline block capitalize">Dresses</Link>
+              <Link to="#explore" className="text-sm font-medium text-blue-600 hover:underline block capitalize">Explore</Link>
             </div>
           </div>
 
           {/* Right Image Block */}
           <div className="flex flex-col">
             <img
-              src="../assets/home/linen-img.jpg"
+              src={bottomRight}
               alt="Center Right"
               className="w-[160px] h-[240px] sm:w-[200px] sm:h-[300px] md:w-[300px] md:h-[450px] lg:w-[460px] lg:h-[690px] object-cover"
             />
             <div className="mt-4 space-y-2">
-              <a href="#tops" className="text-sm font-medium text-blue-600 hover:underline block capitalize">Linen</a>
-              <a href="#explore" className="text-sm font-medium text-blue-600 hover:underline block capitalize">Explore</a>
+              <Link to="#tops" className="text-sm font-medium text-blue-600 hover:underline block capitalize">Accessories</Link>
+              <Link to="#explore" className="text-sm font-medium text-blue-600 hover:underline block capitalize">Explore</Link>
             </div>
           </div>
 
         </div>
       </section>
-
-
-      <section className="w-full flex justify-center px-4 md:px-8 lg:px-20 xl:px-32 2xl:px-40 my-16">
-        <div className="flex flex-wrap justify-center gap-6">
-
-          {/* Left Image Block */}
-          <div className="flex flex-col">
-            <img
-              src="../assets/home/bottom-left.jpg"
-              alt="Center Left"
-              className="w-[160px] h-[240px] sm:w-[200px] sm:h-[300px] md:w-[300px] md:h-[450px] lg:w-[460px] lg:h-[690px] object-cover"
-            />
-            <div className="mt-4 space-y-2 ">
-              <a href="#tops" className="text-sm font-medium text-blue-600 hover:underline block capitalize">Dresses</a>
-              <a href="#explore" className="text-sm font-medium text-blue-600 hover:underline block capitalize">Explore</a>
-            </div>
-          </div>
-
-          {/* Right Image Block */}
-          <div className="flex flex-col">
-            <img
-              src="../assets/home/bottom-right.jpg"
-              alt="Center Right"
-              className="w-[160px] h-[240px] sm:w-[200px] sm:h-[300px] md:w-[300px] md:h-[450px] lg:w-[460px] lg:h-[690px] object-cover"
-            />
-            <div className="mt-4 space-y-2">
-              <a href="#tops" className="text-sm font-medium text-blue-600 hover:underline block capitalize">Accessories</a>
-              <a href="#explore" className="text-sm font-medium text-blue-600 hover:underline block capitalize">Explore</a>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-
-
     </div>
-  )
+  );
 }

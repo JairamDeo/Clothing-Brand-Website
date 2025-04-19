@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { Dialog } from "@headlessui/react";
 
+
 export default function AuthPage() {
   const [isSignIn, setIsSignIn] = useState(true);
   const [formData, setFormData] = useState({ name: "", email: "", mobile: "", password: "" });
