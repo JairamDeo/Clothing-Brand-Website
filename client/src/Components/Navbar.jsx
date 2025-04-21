@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Search, ShoppingBag, User, Heart, Menu, X, ChevronDown } from 'lucide-react';
 import CategoryDrawer from './CategoryDrawer';
 import SearchBar from './SearchBar';
+import logo from '../assets/logo.jpg'; // ✅ Import logo image
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -13,7 +14,6 @@ export default function Navbar() {
   const location = useLocation();
   const navigate = useNavigate();
 
-  // Check screen size and set window width
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
     window.addEventListener('resize', handleResize);
@@ -22,7 +22,6 @@ export default function Navbar() {
 
   const isMobile = windowWidth < 768;
 
-  // Navigation categories with their routes
   const navCategories = [
     { name: 'Ladies', path: '/' },
     { name: 'Men', path: '/men' },
@@ -35,38 +34,31 @@ export default function Navbar() {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
     if (isSearchOpen) setIsSearchOpen(false);
-    // Close category drawer when mobile menu is toggled
     if (activeCategoryDrawer) setActiveCategoryDrawer(null);
   };
 
   const toggleSearch = () => {
     setIsSearchOpen(!isSearchOpen);
     if (isMenuOpen) setIsMenuOpen(false);
-    // Close category drawer when search is toggled
     if (activeCategoryDrawer) setActiveCategoryDrawer(null);
   };
-  
+
   const openDrawer = () => {
-    // Default to 'Ladies' category when opening the drawer
     setActiveCategoryDrawer('Ladies');
-    // Close mobile menu if it's open
     if (isMenuOpen) setIsMenuOpen(false);
   };
 
-  // Check if current location path matches the nav item path
   const isActive = (path) => location.pathname === path;
 
   return (
     <div className="text-sm">
-      {/* Main navbar */}
-      <div className=" bg-white border-b border-gray-200 fixed top-0 left-0 right-0 w-full z-40">
+      <div className="bg-white border-b border-gray-200 fixed top-0 left-0 right-0 w-full z-40 h-auto">
         <div className="container mx-auto px-4 md:px-8">
-          <div className="flex items-center justify-between h-16">
-            {/* Logo - centered on mobile, left-aligned on desktop */}
+          <div className="flex items-center justify-between h-24">
             {isMobile ? (
               <div className="flex mx-auto">
                 <Link to="/" className="flex items-center">
-                  <h1 className="text-2xl font-bold font-bebas text-black tracking-wider">RANJAYA</h1>
+                  <img src={logo} alt="RANJAYA Logo" className="w-[200px] h-[50px] object-fit" />
                 </Link>
               </div>
             ) : (
@@ -75,12 +67,11 @@ export default function Navbar() {
                   <Menu size={24} />
                 </button>
                 <Link to="/" className="flex items-center">
-                  <h1 className="text-2xl font-bold font-bebas text-black tracking-wider">RANJAYA</h1>
+                  <img src={logo} alt="RANJAYA Logo" className="w-[200px] h-[50px] object-fit " />
                 </Link>
               </div>
             )}
 
-            {/* Desktop Navigation */}
             <nav id="nav-links" className="hidden md:flex space-x-8 mx-8 flex-grow justify-center">
               {navCategories.map((item) => (
                 <Link
@@ -97,7 +88,6 @@ export default function Navbar() {
               ))}
             </nav>
 
-            {/* Right Icons */}
             <div className="flex items-center space-x-3 md:space-x-4">
               <button
                 onClick={toggleSearch}
@@ -130,7 +120,6 @@ export default function Navbar() {
                   0
                 </span>
               </Link>
-              {/* Mobile menu button moved to the right side with other icons */}
               {isMobile && (
                 <button
                   id="menu-button"
@@ -143,7 +132,6 @@ export default function Navbar() {
             </div>
           </div>
 
-          {/* Mobile Navigation Row - NEW ADDITION */}
           {isMobile && (
             <div className="flex justify-center overflow-x-auto py-2 border-t border-gray-100">
               <nav className="flex space-x-6">
@@ -166,10 +154,8 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Search Bar Component */}
       <SearchBar isSearchOpen={isSearchOpen} setIsSearchOpen={setIsSearchOpen} isMobile={isMobile} />
 
-      {/* Mobile Menu */}
       {isMenuOpen && isMobile && (
         <div className="bg-white fixed inset-0 z-50 overflow-y-auto">
           <div className="p-4">
@@ -177,7 +163,7 @@ export default function Navbar() {
               <button onClick={toggleMenu}>
                 <X size={24} />
               </button>
-              <h1 className="text-xl font-bold font-bebas">RANJAYA</h1>
+              <img src={logo} alt="RANJAYA Logo" className="w-[190px] h-auto object-contain" />
               <Link to="#" className="p-1 relative">
                 <ShoppingBag size={20} />
                 <span className="absolute -top-1 -right-1 bg-black text-white text-xs rounded-full h-4 w-4 flex items-center justify-center">
@@ -224,7 +210,6 @@ export default function Navbar() {
         </div>
       )}
 
-      {/* Category Drawer Component */}
       <CategoryDrawer
         activeCategoryDrawer={activeCategoryDrawer}
         setActiveCategoryDrawer={setActiveCategoryDrawer}

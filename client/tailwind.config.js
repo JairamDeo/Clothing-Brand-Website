@@ -10,6 +10,9 @@ export default {
         poppins: ['Poppins', 'sans-serif'],
         bebas: ['Bebas Neue', 'sans-serif'],
       },
+      backgroundImage: {
+        'Logo' : "url('../assets/logo.jpg')",
+      },
     },
   },
   plugins: [],
