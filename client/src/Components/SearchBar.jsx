@@ -51,7 +51,7 @@ export default function SearchBar({ isSearchOpen, setIsSearchOpen, isMobile }) {
   if (!isSearchOpen) return null;
 
   return (
-    <div className={`border-b border-gray-200 py-3 px-4 absolute w-full bg-white z-30 ${isMobile ? 'top-24' : 'top-16'}`}>
+    <div className={`border-b border-gray-200 py-3 px-4 fixed w-full bg-white z-30 ${isMobile ? 'top-28' : 'top-20'}`}>
       <div className="container mx-auto flex items-center max-w-2xl">
         <Search size={18} className="text-gray-500" />
         <form onSubmit={handleSearchSubmit} className="w-full flex items-center">

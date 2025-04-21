@@ -52,9 +52,9 @@ export default function Navbar() {
 
   return (
     <div className="text-sm">
-      <div className="bg-white border-b border-gray-200 fixed top-0 left-0 right-0 w-full z-40 h-auto">
+      <div className="bg-white border-b border-gray-200 fixed top-0 left-0 right-0 w-full z-40 ">
         <div className="container mx-auto px-4 md:px-8">
-          <div className="flex items-center justify-between h-24">
+          <div className="flex items-center justify-between h-20">
             {isMobile ? (
               <div className="flex mx-auto">
                 <Link to="/" className="flex items-center">
@@ -217,6 +217,9 @@ export default function Navbar() {
         windowWidth={windowWidth}
         isMobile={isMobile}
       />
+      
+      {/* Add padding equal to navbar height */}
+      <div className="h-24 md:h-20"></div>
     </div>
   );
 }
