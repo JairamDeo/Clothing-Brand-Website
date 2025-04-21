@@ -11,7 +11,8 @@ export default {
         bebas: ['Bebas Neue', 'sans-serif'],
       },
       backgroundImage: {
-        'Logo' : "url('../assets/logo.jpg')",
+        'Logo' : "url('/src/assets/logo.png')", //white bg
+        'LogoOg' : "url('/src/assets/logo.jpg')", //beige bg
       },
     },
   },

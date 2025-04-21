@@ -3,7 +3,9 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Search, ShoppingBag, User, Heart, Menu, X, ChevronDown } from 'lucide-react';
 import CategoryDrawer from './CategoryDrawer';
 import SearchBar from './SearchBar';
-import logo from '../assets/logo.jpg'; //  Import logo image
+
+//import logo from '../assets/logo.jpg'; //  Import logo image beige bg
+import logo from '../assets/logo.png'; //  Import logo image white bg
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -64,7 +66,7 @@ export default function Navbar() {
             ) : (
               <div className="flex items-center">
                 <Link to="/" className="flex items-center">
-                  <img src={logo} alt="RANJAYA Logo" className="w-[200px] h-[50px] object-fit " />
+                  <img src={logo} alt="RANJAYA Logo" className="w-[200px] h-[50px] object-fit" />
                 </Link>
                 {/* Three bar  menu icon for opening category menu drawer*/}
                 <button id="menu-button" onClick={openDrawer} className="p-2 ml-2 flex items-center justify-center">
