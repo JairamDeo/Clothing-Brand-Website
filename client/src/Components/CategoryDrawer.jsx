@@ -1,7 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { X, ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
-
 
 import blousesintrend from '../assets/CategoryDrawer/ladies-section/blouses-in-trend.jpg';
 import loungewear from '../assets/CategoryDrawer/ladies-section/loungewear.jpg';
@@ -26,6 +25,28 @@ export default function CategoryDrawer({
   const toggleCategoryDrawer = (category) => {
     setActiveCategoryDrawer(category);
   };
+  
+  // Create a ref to track initial mount
+  const firstRender = useRef(true);
+  // Create a ref to track previous mobile state
+  const prevIsMobile = useRef(isMobile);
+
+  // Handle layout shifts during screen resize
+  useEffect(() => {
+    // Skip effect on first render
+    if (firstRender.current) {
+      firstRender.current = false;
+      return;
+    }
+    
+    // If mobile state changed and drawer is open, close it to prevent animation issues
+    if (prevIsMobile.current !== isMobile && activeCategoryDrawer) {
+      setActiveCategoryDrawer(null);
+    }
+    
+    // Update previous mobile state
+    prevIsMobile.current = isMobile;
+  }, [isMobile, activeCategoryDrawer, setActiveCategoryDrawer]);
   
   // Close drawer when clicking outside
   useEffect(() => {
@@ -287,53 +308,53 @@ export default function CategoryDrawer({
 
   return (
     <>
-      {activeCategoryDrawer && (
-        <div id="category-drawer" 
-          className={`fixed inset-y-0 bg-white z-50 shadow-lg transform transition-transform duration-700 ease-in-out overflow-y-auto ${
-            isMobile 
-              ? 'right-0 w-full' 
-              : 'left-0 w-full md:w-1/2'
-          }`}
-          style={{ 
-            transitionProperty: 'transform',
-            transform: activeCategoryDrawer ? 'translateX(0)' : (isMobile ? 'translateX(100%)' : 'translateX(-100%)')
-          }}
-        >
-          <div className="flex items-center p-4 border-b border-gray-200">
-            <button onClick={() => setActiveCategoryDrawer(null)} className="mr-4">
-              <X size={24} />
-            </button>
-            
-            <div className="flex space-x-6 overflow-x-auto no-scrollbar">
-              {navCategories.map((item) => (
-                <button
-                  key={item.name}
-                  onClick={() => toggleCategoryDrawer(item.name)}
-                  className={`font-medium whitespace-nowrap ${
-                    activeCategoryDrawer === item.name 
-                      ? 'text-black font-semibold' 
-                      : 'text-gray-400'
-                  }`}
-                >
-                  {item.name}
-                </button>
-              ))}
-            </div>
-          </div>
+      {/* Always render drawer but control visibility with classes */}
+      <div id="category-drawer" 
+        className={`fixed inset-y-0 bg-white z-50 shadow-lg transition-transform duration-700 ease-in-out overflow-y-auto ${
+          isMobile 
+            ? 'right-0 w-full' 
+            : 'left-0 w-full md:w-1/2'
+        }`}
+        style={{ 
+          transform: activeCategoryDrawer 
+            ? 'translateX(0)' 
+            : (isMobile ? 'translateX(100%)' : 'translateX(-100%)'),
+          visibility: activeCategoryDrawer ? 'visible' : 'hidden'
+        }}
+      >
+        <div className="flex items-center p-4 border-b border-gray-200">
+          <button onClick={() => setActiveCategoryDrawer(null)} className="mr-4">
+            <X size={24} />
+          </button>
           
-          {/* Drawer content based on active category */}
-          {getCategoryContent(activeCategoryDrawer)}
+          <div className="flex space-x-6 overflow-x-auto no-scrollbar">
+            {navCategories.map((item) => (
+              <button
+                key={item.name}
+                onClick={() => toggleCategoryDrawer(item.name)}
+                className={`font-medium whitespace-nowrap ${
+                  activeCategoryDrawer === item.name 
+                    ? 'text-black font-semibold' 
+                    : 'text-gray-400'
+                }`}
+              >
+                {item.name}
+              </button>
+            ))}
+          </div>
         </div>
-      )}
+        
+        {/* Only render content when drawer is active for performance */}
+        {activeCategoryDrawer && getCategoryContent(activeCategoryDrawer)}
+      </div>
       
-      {/* Overlay when drawer is open */}
-      {activeCategoryDrawer && (
-        <div 
-          className="fixed inset-0 bg-black bg-opacity-50 z-40 transition-opacity duration-700"
-          onClick={() => setActiveCategoryDrawer(null)}
-          style={{ opacity: activeCategoryDrawer ? '1' : '0' }}
-        />
-      )}
+      {/* Overlay with opacity transition */}
+      <div 
+        className={`fixed inset-0 bg-black transition-opacity duration-700 ${
+          activeCategoryDrawer ? 'opacity-50 z-40' : 'opacity-0 -z-10'
+        }`}
+        onClick={() => setActiveCategoryDrawer(null)}
+      />
     </>
   );
 }
